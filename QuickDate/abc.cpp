@@ -3,8 +3,19 @@ using namespace std;
 
 int main()
 {
-	for (int i = 0; i < 10; i++)
-		cout << "Hello Git!\n";
+	char c;
+	cin >> c;
+
+	if ((c >= 'a') && (c <= 'z')) {
+		c -= 32;
+	}
+	else if ((c >= 'A') && (c <= 'Z')) {
+		c += 32;
+	}
+	else {
+		;
+	}
+	cout << c;
 
 	return 0;
 }
