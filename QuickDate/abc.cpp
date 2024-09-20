@@ -3,7 +3,8 @@ using namespace std;
 
 int main()
 {
-	cout << "Hello Visual Studio 2022!!!\n";
-	
+	for (int i = 0; i < 10; i++)
+		cout << "Hello Git!\n";
+
 	return 0;
 }
