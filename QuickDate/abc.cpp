@@ -1,21 +1,21 @@
 #include <iostream>
 using namespace std;
 
-int main()
+char main()
 {
-	char c;
-	cin >> c;
+	char a;
+	cin >> a;
 
-	if ((c >= 'a') && (c <= 'z')) {
-		c -= 32;
+	if ((a >= 'a') && (a <= 'z')) {
+		a -= 32;
 	}
-	else if ((c >= 'A') && (c <= 'Z')) {
-		c += 32;
+	else if ((a >= 'A') && (a <= 'Z')) {
+		a += 32;
 	}
 	else {
 		;
 	}
-	cout << c;
+	cout << a;
 
 	return 0;
 }
