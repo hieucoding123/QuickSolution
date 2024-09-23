@@ -1,40 +1,48 @@
-#include <iostream>
+/*#include <iostream>
 using namespace std;
 
 int main()
 {
-	int day, month;
+	string dmy;
 
-	cin >> day >> month;
-	switch (month) {
-	case 1:
-	case 2:
-		cout << "Spring"; break;
-	case 3:
-		if (day <= 21) cout << "Spring";
-		else cout << "Summer";
+	cin >> dmy;
+	switch (dmy[3]) {
+	case 48:
+		switch (dmy[4]) {
+		case 49: case 51: case 53: 
+		case 55: case 56:
+			if (dmy[0] > 51) {
+				cout << "no";
+			} else if ((dmy[0]==51) && (dmy[1]>50)) {
+				cout << "no";
+			} else {
+				cout << "yes";
+			}
+			break;
+		case 50: case 52:
+		case 54: case 57:
+			if (dmy[0] > 51) {
+				cout << "no";
+			} else if ((dmy[0]==51) && (dmy[1]>48)) {
+				cout << "no";
+			} else {
+				cout << "yes";
+			}
+			break;
+		}
 		break;
-	case 4:
-	case 5:
-		cout << "Summer"; break;
-	case 6:
-		if (day <= 22) cout << "Summer";
-		else cout << "Autumn";
+	case 49:
+		if ((dmy[0]>51) || (dmy[4]>50)) {
+			cout << "no";
+		} else if ((dmy[4]==49) && (dmy[0]==51) && (dmy[1]>48)) {
+			cout << "no";
+		} else if ((dmy[4] == 50) && (dmy[0] == 51) && (dmy[1] > 49)) {
+			cout << "no";
+		} else {
+			cout << "yes";
+		}
 		break;
-	case 7:
-	case 8:
-		cout << "Autumn"; break;
-	case 9:
-		if (day <= 23) cout << "Autumn";
-		else cout << "Winter";
-		break;
-	case 10:
-	case 11:
-		cout << "Winter"; break;
-	case 12:
-		if (day <= 22) cout << "Winter";
-		else cout << "Spring";
 	}
 
 	return 0;
-}
+}*/
