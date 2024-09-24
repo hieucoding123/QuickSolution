@@ -65,52 +65,23 @@ int main()
 	cin >> viet_1 >> viet_2;
 	cin >> ck >> st;*/
 	double ip;
-	//cout << th[1] << th[2];
-	
-	//for (int i = 0; i < 10; i++) {
-	//	cin >> max;
-	//	if (max > th[0]) {
-	//		for (int k = 0; k < 9; k++)
-	//			th[10 - 2 - k] = th[10 - 1 - k];
-	//		max = th[0];
-	//	}else{
-	//		for (int n = 1; n < 10; n++) {
-	//			if (max > th[n]) {
-	//				for (int m = 0; m <= 10-2-n; m++)
-	//					th[10-2-m] = th[10-1-m];
-	//				max = th[n];
-	//			}
-	//		}
-	//	}
-	//}
 
-	/*for (int i = 0; i < 10; i++) {
-		cin >> max;
+	for (int i = 0; i < 10; i++)
+		cin >> th[i];
+	for (int m = 0; m < 9; m++) {
 		for (int k = 0; k < 9; k++) {
-			if (max > th[k]) {
-				for (int n = 8; n >= k; n--)
-					th[n] = th[n+1];
-				th[k] = max; 
-				break;
+			int c;
+			if ((th[k] < th[k + 1])) {
+				c = th[k];
+				th[k] = th[k + 1];
+				th[k + 1] = c;
+				k -= 1;
 			}
 		}
 	}
-	cout << th[0] << th[9] << th[8] << th[5] << th[4];*/
+	for (int i = 0; i < 10; i++)
+		cout << th[i];
 	
-	/*for (int i = 0; i < 10; i++) {
-		cin >> ip;
-		for (int n = 0; i < 9; n++) {
-			if (th[n+1]==0 && n<8) {
-				th[n] = ip;
-				break;
-			}else{
-				ip = min(th[n], th[n + 1]);
-				th[n] = max(th[n + 1], th[n]);
-				th[n+1] = ip;
-			}
-		}
-	}
 
-	cout << th[1];*/
 	return 0;
 }
