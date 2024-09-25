@@ -47,11 +47,11 @@ int main()
 	return 0;
 }*/
 
-#include <iostream>
+/*#include <iostream>
 #include <iomanip>
 using namespace std;
 
-/*int main()
+int main()
 {
 	int lythuyet;
 	// 	double th1, th2, th3, th4, th5, th6, th7, th8, th9, th10;
@@ -111,3 +111,134 @@ using namespace std;
 	return 0;
 }*/
 
+/*#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+	int a, b, c;
+	int delta;
+	double x1, x2;
+
+	cin >> a >> b >> c;
+	delta = b*b - 4*a*c;
+
+	if (a == 0) {
+		if (b==0 && c!=0) {
+			cout << "phuong trinh vo nghiem";
+		}else if (b==0 && c==0) {
+			cout << "phuong trinh co vo so nghiem";
+		}else {
+			cout << "phuong trinh co 1 nghiem" << endl;
+			cout << fixed << setprecision(5) << ((double)c/b*-1);
+		}
+	}else if (b== 0 && a*c>0) {
+		cout << "phuong trinh vo nghiem";
+	}else if (delta == 0) {
+		cout << "phuong trinh co 1 nghiem" << endl;
+		cout << fixed << setprecision(5) << ((-1*b+sqrt(delta)) / (2*a));
+	}else {
+		cout << "phuong trinh co 2 nghiem" << endl;
+		x1 = (-1*b+sqrt(delta)) / (2*a);
+		x2 = -1*b/a - x1;
+		cout << fixed << setprecision(5) << min(x1, x2) << " " << max(x1, x2);
+	}
+
+	return 0;
+}*/
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+	int a, b, c;
+	double delta;
+	double x1, x2, x3, x4;
+
+	cin >> a >> b >> c;
+	
+	delta = b*b - 4*a*c;
+	if (a == 0) {
+		if (b == 0 && c != 0) {
+			cout << "phuong trinh vo nghiem";
+		}
+		else if (b == 0 && c == 0) {
+			cout << "phuong trinh co vo so nghiem";
+		}
+		else {
+			if (b*c > 0) {
+				cout << "phuong trinh vo nghiem";
+			}else if (b*c < 0) {
+				cout << "phuong trinh co 2 nghiem" << endl;
+				x1 = -1*sqrt(-1*c/b);
+				x2 = -x1;
+				cout << fixed << setprecision(5) << x1 << " " << x2;
+			}else {
+				cout << "phuong trinh co 1 nghiem" << endl;
+				cout << 0.00000;
+			}
+		}
+	}else if (b*c == 0) {
+		if (c==0) {
+			x1 = 0.00000;
+			if (a*b >= 0) {
+				cout << "phuong trinh co 1 nghiem" << endl;
+				cout << fixed << setprecision(5) << x1;
+			}else {
+				cout << "phuong trinh co 3 nghiem" << endl;
+				x2 = sqrt(-1*b/a);
+				x3 = -x2;
+				cout << fixed << setprecision(5) << x3 << " " << x1 << " " << x2;
+			}
+		}
+		else if (b == 0) {
+			if (a * c > 0) {
+				cout << "phuong trinh vo nghiem";
+			}
+			else if (a * c < 0) {
+				cout << "phuong trinh co 2 nghiem" << endl;
+				x1 = -1 * sqrt((sqrt(-1 * c / a)));
+				x2 = -x1;
+				cout << fixed << setprecision(5) << x1 << " " << x2;
+			}
+		}
+	}else {	// b*c != 0
+		if (delta < 0) {
+			cout << "phuong trinh vo nghiem";
+		}else if (delta == 0){
+			if (a*b < 0) {
+				cout << "phuong trinh co 2 nghiem" << endl;
+				x1 = -sqrt(-1/2* b/a);
+				x2 = -x1;
+				cout << fixed << setprecision(5) << x1 << " " << x2;
+			}else {
+				cout << "phuong trinh vo nghiem";
+			}
+		}else {
+			if (a*b<0 && a*c>0) {
+				cout << "phuong trinh co 4 nghiem" << endl;
+				x1 = sqrt((-b+sqrt(delta))/2/a);
+				x2 = -x1;
+				x3 = -sqrt((-b-sqrt(delta))/2/a);
+				x4 = -x3;
+				cout << fixed << setprecision(5)<<min(x2, x4)<<" "<<max(x2, x4)<<" "<<min(x1, x3)<<" "<<max(x1, x3);
+			}else if (a*b>0 && a*c>0) {
+				cout << "phuong trinh vo nghiem";
+			}else {
+				cout << "phuong trinh co 2 nghiem" << endl;
+				x3 = (-b+sqrt(delta))/2/a;
+				x4 = (-b+sqrt(delta))/2/a;
+				x1 = sqrt(max(x3, x4));
+				x2 = -x1;
+				cout << fixed << setprecision(5) << x1 << " " << x2;
+			}
+		}
+	}
+
+	return 0;
+}
