@@ -51,26 +51,33 @@ int main()
 #include <iomanip>
 using namespace std;
 
-int main()
+/*int main()
 {
-	/*int lythuyet;
-	double th1, th2, th3, th4, th5, th6, th7, th8, th9, th10;
-	double max1, max2, max3, max4, max5;
-	double viet_1, viet_2;
-	double ck, st;*/
-
+	int lythuyet;
+	// 	double th1, th2, th3, th4, th5, th6, th7, th8, th9, th10;
+	// 	double max1, max2, max3, max4, max5;
 	double th[10] = { };
-	/*cin >> lythuyet;
-	cin >> th1 >> th2 >> th3 >> th4 >> th5 >> th6 >> th7 >> th8 >> th9 >> th10;
-	cin >> viet_1 >> viet_2;
-	cin >> ck >> st;*/
-	double ip;
+	double c;
+	double tbinh_th;
+	double viet_1, viet_2;
+	double tbinh_viet;
+	double ck, st;
+	int nop_th = 0;
+	double cc;
+	double tong_ket;
 
-	for (int i = 0; i < 10; i++)
+
+	cin >> lythuyet;
+	// 	cin >> th1 >> th2 >> th3 >> th4 >> th5 >> th6 >> th7 >> th8 >> th9 >> th10;
+
+	for (int i = 0; i < 10; i++) {
 		cin >> th[i];
+		if (th[i] != 0)
+			nop_th++;
+	}
 	for (int m = 0; m < 9; m++) {
 		for (int k = 0; k < 9; k++) {
-			int c;
+			// 			double c;
 			if ((th[k] < th[k + 1])) {
 				c = th[k];
 				th[k] = th[k + 1];
@@ -79,9 +86,28 @@ int main()
 			}
 		}
 	}
+	cin >> viet_1 >> viet_2;
+	cin >> ck >> st;
+
+	tbinh_th = (th[0] + th[1] + th[2] + th[3] + th[4]) / 5;
+	cout << "Trung binh thuc hanh = " << tbinh_th << endl;
+	tbinh_viet = (viet_1 + viet_2) / 2;
+	cout << "Trung binh giua ki (viet) = " << tbinh_viet << endl;
+	cc = lythuyet + nop_th;
+	if (cc < 20) {
+		tong_ket = 0;
+	}
+	else {
+		tong_ket = 2/10 * tbinh_th + 2/10 * tbinh_viet + 6/10 * (st + ck);
+	}
 	for (int i = 0; i < 10; i++)
-		cout << th[i];
-	
+		cout << "th" << i << ": " << th[i];
+	if (tong_ket > 10)
+		tong_ket = 10;
+	else 
+		tong_ket = round(tong_ket*10)/10;
+	cout << fixed << setprecision(1) << tong_ket;
 
 	return 0;
-}
+}*/
+
