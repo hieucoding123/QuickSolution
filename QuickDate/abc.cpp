@@ -273,3 +273,53 @@ int main()
 	return 0;
 }*/
 
+/*#include <iostream>
+using namespace std;
+
+int main()
+{
+	int f1;
+	int f2;
+	int n;
+
+	cin >> n;
+	f1 = f2 = 1;
+	if (n <= 2) {
+		cout << f1;
+	}else {
+		for (int i = 3; i <= n; i++) {
+			f1 = f2 + f1;
+			f2 = f1 - f2;
+		}
+		cout << f1;
+	}
+
+	return 0;
+	}*/
+
+/*#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n;
+	int f1, f2;
+
+	cin >> n;
+	f1 = 0;
+	f2 = 1;
+	for (int i = 0; i < n; i++) {
+		if (i == 0) {
+			cout << f1 << " "; continue;
+		}
+		if (i == 1) {
+			cout << f2 << " "; continue;
+		}
+		f2 = f2 + f1;
+		f1 = f2 - f1;
+		cout << f2 << " ";
+	}
+
+	return 0;
+}*/
+
