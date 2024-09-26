@@ -19,8 +19,38 @@ int main()
 				cout << "yes";
 			}
 			break;
-		case 50: case 52:
-		case 54: case 57:
+		case 50:
+			if (dmy[0] > 50) {
+				cout << "no";
+			}else if (dmy[0] < 50) {
+				cout << "yes";
+			}else {		// dmy[0] = 50;
+				if ((dmy[8] == dmy[9]) && (dmy[8] == 48)) {
+					cout << "yes";
+				}else {
+					if (dmy[8]%2 == 0) {
+						if (dmy[9]==48 || dmy[9]==52 || dmy[9]==56) {
+							cout << "yes";
+						}else {
+							if (dmy[1] != 57)
+								cout << "yes";
+							else
+								cout << "no";
+						}
+					}else {
+						if (dmy[9]==50 || dmy[9]==54) {
+							cout << "yes";
+						}else {
+							if (dmy[1] != 57)
+								cout << "yes";
+							else
+								cout << "no";
+						}
+					}
+				}
+			}
+			break;
+		case 52: case 54: case 57:
 			if (dmy[0] > 51) {
 				cout << "no";
 			} else if ((dmy[0]==51) && (dmy[1]>48)) {
@@ -70,7 +100,7 @@ int main()
 	cin >> lythuyet;
 	// 	cin >> th1 >> th2 >> th3 >> th4 >> th5 >> th6 >> th7 >> th8 >> th9 >> th10;
 
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 10; i++) {	// sort input array
 		cin >> th[i];
 		if (th[i] != 0)
 			nop_th++;
@@ -149,7 +179,7 @@ int main()
 	return 0;
 }*/
 
-#include <iostream>
+/*#include <iostream>
 #include <iomanip>
 #include <cmath>
 using namespace std;
@@ -180,7 +210,7 @@ int main()
 				cout << fixed << setprecision(5) << x1 << " " << x2;
 			}else {
 				cout << "phuong trinh co 1 nghiem" << endl;
-				cout << 0.00000;
+				cout << fixed << setprecision(5) << 0.00000;
 			}
 		}
 	}else if (b*c == 0) {
@@ -213,7 +243,7 @@ int main()
 		}else if (delta == 0){
 			if (a*b < 0) {
 				cout << "phuong trinh co 2 nghiem" << endl;
-				x1 = -sqrt(-1/2* b/a);
+				x1 = -sqrt(-0.5 * b/a);
 				x2 = -x1;
 				cout << fixed << setprecision(5) << x1 << " " << x2;
 			}else {
@@ -222,18 +252,18 @@ int main()
 		}else {
 			if (a*b<0 && a*c>0) {
 				cout << "phuong trinh co 4 nghiem" << endl;
-				x1 = sqrt((-b+sqrt(delta))/2/a);
+				x1 = -sqrt((-b+sqrt(delta))/2/a);
 				x2 = -x1;
 				x3 = -sqrt((-b-sqrt(delta))/2/a);
 				x4 = -x3;
-				cout << fixed << setprecision(5)<<min(x2, x4)<<" "<<max(x2, x4)<<" "<<min(x1, x3)<<" "<<max(x1, x3);
+				cout << fixed << setprecision(5)<<min(x1, x3)<<" "<<max(x1, x3)<<" "<<min(x2, x4)<<" "<<max(x2, x4);
 			}else if (a*b>0 && a*c>0) {
 				cout << "phuong trinh vo nghiem";
 			}else {
 				cout << "phuong trinh co 2 nghiem" << endl;
 				x3 = (-b+sqrt(delta))/2/a;
-				x4 = (-b+sqrt(delta))/2/a;
-				x1 = sqrt(max(x3, x4));
+				x4 = (-b-sqrt(delta))/2/a;
+				x1 = -sqrt(max(x3, x4));
 				x2 = -x1;
 				cout << fixed << setprecision(5) << x1 << " " << x2;
 			}
@@ -241,4 +271,5 @@ int main()
 	}
 
 	return 0;
-}
+}*/
+
