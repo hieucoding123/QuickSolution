@@ -323,3 +323,26 @@ int main()
 	return 0;
 }*/
 
+/*#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+	long sq;
+	long n;
+	long xam = 0;
+
+	cin >> n;
+	for (int i = 1; ; i++) {
+		sq = pow(10, i);
+		if (n/sq != 0) {
+			xam = max(xam, ((n%sq)/ (sq/10)));
+		}else {
+			cout << xam;
+			break;
+		}
+	}
+
+	return 0;
+}*/
