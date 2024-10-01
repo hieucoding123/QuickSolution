@@ -346,3 +346,71 @@ int main()
 
 	return 0;
 }*/
+
+/*#include <iostream>
+using namespace std;
+
+int main()
+{
+	string s;
+	int xam = 0;
+	int c;
+	int l;
+
+	cin >> s;
+	l = s.size();
+	for (int i = 0; i < l; i++) {
+		c = s[i];
+		xam = max(xam, c);
+		if (xam == 57) {
+			break;
+		}
+	}
+	cout << (char)xam;
+	return 0;
+}*/
+
+/*#include <iostream>
+using namespace std;
+
+int f(int);	// a declaration
+
+int f(const int x)	// a definition
+{
+	//x += 2;	// error: x is const; cannot modify
+	return x;
+}
+
+int main()
+{
+	int k = 6;
+	cout << f(k);
+	return 0;
+}*/
+
+/*#include <iostream>
+#include <string>;
+using namespace std;
+
+string pig_latin(string s)
+{
+	string x = "";
+	if (s[0] == 'a' || s[0] == 'i' || s[0] == 'o' || s[0] == 'u') {
+		s += "way";
+		return s;
+	}else {
+		x = s[0];
+		s = s.erase(0, 1) + x + "ay";	// xoa 1 ki tu from 0
+		//s.erase(0);	// xoa tu 0 den het
+		return s;
+	}
+}
+
+
+int main()
+{
+	string s = "trca";
+	cout << pig_latin(s);
+
+	return 0;
+}*/
