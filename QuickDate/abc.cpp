@@ -415,7 +415,6 @@ int main()
 	return 0;
 }*/
 
-
 /*#include <iostream>
 using namespace std;
 
@@ -491,6 +490,47 @@ int main()
 	
 	cin >> x >> y;
 	cout << hammingDistance(x, y);
+	return 0;
+}*/
+
+
+/*#include <iostream>
+#include <cmath>
+using namespace std;
+
+void is_odd_even(int n)
+{
+	int k;
+	int b_10, item;
+	int test1, test2;
+
+	for (int i = 0; i < n; i++) {
+		cin >> k;
+		test1 = 1; test2 = 0;
+		for (int n = 1; ; n++) {
+			b_10 = pow(10, n);
+			item = (k%b_10)*10 / b_10;	// number in integer
+			test1 *= item%2;
+			test2 += item%2;
+			if (k/b_10 == 0)
+				break;
+		}
+		if (test1 == 0 && test2 == 0)	// even number
+			cout << "yes" << endl;
+		else if (test1 == 1)	// odd number
+			cout << "yes" << endl;
+		else
+			cout << "no" << endl;	
+	}
+}
+
+int main()
+{
+	int n;
+
+	cin >> n;
+	is_odd_even(n);
+
 	return 0;
 }*/
 
