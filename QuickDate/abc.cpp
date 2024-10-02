@@ -414,3 +414,83 @@ int main()
 
 	return 0;
 }*/
+
+
+/*#include <iostream>
+using namespace std;
+
+void printArrow(int n, bool left)
+{
+	if (left) {
+		for (int i = 1; i <= n - 1; i++) {
+			for (int k = n - i; k > 0; k--)
+				cout << " ";
+			for (int k = n + 1 - i; k > 0; k--)
+				cout << '*';
+			cout << endl;
+		}
+		cout << '*' << endl;
+		for (int i = n - 1; i > 0; i--) {
+			for (int k = n - i; k > 0; k--)
+				cout << ' ';
+			for (int k = n + 1 - i; k > 0; k--)
+				cout << '*';
+			cout << endl;
+		}
+	}else {
+		for (int i = 1; i <= n; i++) {
+			for (int k = i-1; k > 0; k--)
+				cout << ' ' << ' ';
+			for (int k = n+1 - i; k > 0; k--)
+				cout << "*";
+			cout << endl;
+		}
+		for (int i = n-1; i > 0; i--) {
+			for (int k = i-1; k > 0; k--)
+				cout << ' ' << ' ';
+			for (int k = n+1 - i; k > 0; k--)
+				cout << '*';
+			cout << endl;
+		}
+	}
+}
+
+int main()
+{
+	int n;
+	int left;
+
+	cin >> n >> left;
+	printArrow(n, left);
+	return 0;
+}*/
+
+/*#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+
+int hammingDistance(int x, int y)
+{
+	int ketqua = 0;
+	int i = 0;
+	while (true) {
+		i += 1;
+		if (x%2 != y%2) {
+			ketqua += 1;
+		}
+		if (x/2==0 && y/2==0 && i%4==0)
+			return ketqua;
+		x = (x-x%2) / 2;
+		y = (y-y%2) / 2;
+	}
+}
+int main()
+{
+	int x, y;
+	
+	cin >> x >> y;
+	cout << hammingDistance(x, y);
+	return 0;
+}*/
+
