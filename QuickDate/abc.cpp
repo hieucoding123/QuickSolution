@@ -493,7 +493,6 @@ int main()
 	return 0;
 }*/
 
-
 /*#include <iostream>
 #include <cmath>
 using namespace std;
@@ -531,6 +530,115 @@ int main()
 	cin >> n;
 	is_odd_even(n);
 
+	return 0;
+}*/
+
+/*#include <iostream>
+#include <cmath>
+using namespace std;
+
+bool is(int n)
+{
+	while (true) {
+		if (n%2 == 0) {
+			n /= 2;
+		}else if (n%3 == 0) {
+			n /= 3;
+		}else if (n%5 == 0) {
+			n /= 5;
+		}else {
+			if (n == 1)
+				return true;
+			else
+				return false;
+		}
+	}
+}
+
+int main()
+{
+	int a = 32769;
+	cout << is(a);
+}*/
+
+/*#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n;
+	int so_san_pham[30];
+	double mean = 0;
+
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> so_san_pham[i];
+		mean += so_san_pham[i];
+	}
+	mean /= n;
+
+	for (int i = 0; i < n; i++) {
+		if (so_san_pham[i] >= mean)
+			cout << so_san_pham[i] << " ";
+	}
+
+	return 0;
+}*/
+
+/*#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	int m, n, q;
+	cin >> m >> n >> q;
+	vector < vector<int> > a1(m, vector<int>(n));
+	vector < vector<int> > a2(q, vector<int>(2));
+
+	for (int i = 0; i < m; i++)
+		for (int j = 0; j < n; j++)
+			cin >> a1[i][j];
+	for (int i = 0; i < q; i++)
+		for (int j = 0; j < 2; j++)
+			cin >> a2[i][j];
+
+	for (int i = 0; i < q; i++)
+		cout << a1[(a2[i][0]) - 1][(a2[i][1]) - 1] << endl;
+
+	// cout << a1[1][3];
+
+	return 0;
+}*/
+
+/*#include <iostream>
+#include <string>
+using namespace std;
+
+bool isIsomorphic(string a, string b)
+{
+	char test1, test2;
+	for (int i = 0; a[i] != '\0'; i++) {
+		test1 = a[i];
+		test2 = b[i];
+		for (int j = i; a[j] != '\0'; j++) {
+			if (a[j] == test1) {
+				if (b[j] != test2)
+					return false;
+			}else {
+				if (b[j] == test2)
+					return false;
+			}
+		}
+	}
+	return true;
+}
+
+int main()
+{
+	string a = "keg";
+	string b = "aae";
+	cout << isIsomorphic(a, b);
 	return 0;
 }*/
 
