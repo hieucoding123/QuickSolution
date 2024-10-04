@@ -642,3 +642,67 @@ int main()
 	return 0;
 }*/
 
+/*#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	vector <int> m(1);
+	int n;
+	int f;
+	int x = 0;
+	vector <int> num(10, 10);
+	vector <int> freq(10, 10);
+
+	cin >> n;
+	m.resize(n);
+	for (int i = 0; i < n; i++) {
+		cin >> m[i];
+	}
+	for (int i = 0; i < n; i++) {
+		f = 0;
+		for (int j = i; j < n; j++) {
+			if (m[j] == m[i]) {
+				f++;
+			}
+		}
+		for (int k = 0; k < 10; k++) {
+			if (num[k] == m[i]) {   
+				break;
+			}
+			else {
+				if (k == 9) {   
+					num[x] = m[i];
+					freq[x] = f;
+					x++;    
+					cout << m[i] << " " << f << endl;
+					break;
+				}
+			}
+		}
+	}
+
+	return 0;
+}*/
+
+/*#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	string word;
+	int count = 0;
+
+	while (cin >> word) {	// read a word, not a single character
+		count++;
+	}
+	if (count <= 1)
+		cout << count << " word";
+	else
+		cout << count << " words";
+
+	return 0;
+}*/
+
