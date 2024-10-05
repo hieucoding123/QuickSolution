@@ -706,3 +706,56 @@ int main()
 	return 0;
 }*/
 
+/*#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	int n;
+	int x, y, pos;
+	int a, b;
+	vector < vector<int> > sudoku(9, vector<int>(9));
+	vector < vector<int> > blocks(9, vector<int>(9));
+
+	for (int i = 0; i < 9; i++)
+		for (int j = 0; j < 9; j++)
+			cin >> sudoku[i][j];
+	cin >> n >> x >> y;
+	if (n > 9 || n < 1) {
+		cout << "Invalid number.";
+	}
+	else if (x > 10 || x < 1 || y>10 || y < 1) {
+		cout << "Invalid place.";
+	}
+	else {
+		a = b = 0;      
+		for (int i = 0; i < 9; i++) {
+			a = (i / 3) * 3;
+			b = (i % 3) * 3;
+			for (int j = 0; j < 9; j++) {
+				blocks[a][b] = sudoku[i][j];
+				if ((b + 1) % 3 == 0) {
+					a += 1;
+					b = (i % 3) * 3;
+				}
+				else {
+					b++;
+				}
+			}
+		}
+		pos = (y - 1) / 3 + ((x - 1) / 3) * 3;      
+		for (int i = 0; i < 9; i++) {
+			if (n == sudoku[x - 1][i] || n == sudoku[i][y - 1] || n == blocks[pos][i]) {
+				cout << "Invalid place."; break;
+			}
+			else {
+				if (i == 8)     
+					cout << "Valid place.";
+			}
+		}
+	}
+
+	return 0;
+}*/
+
