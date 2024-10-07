@@ -759,3 +759,40 @@ int main()
 	return 0;
 }*/
 
+/*#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	vector <float> M = {1.3435, 3.13453, 2.73254, 7.808};
+
+	for (float i : M)	// print elements in vector M
+		cout << i << ' ';	// i is an element in vector M
+	// 1.3435 3.13453 2.73254 7.808
+	cout << endl;
+
+	for (int i : M) {
+		if (i%2 == 0)
+			cout << i << ' ';
+	}
+	cout << endl;
+	// 2
+
+	M.push_back(6.4892);	// push an elements back	
+	cout << M[M.size() - 1];
+	// 6.4892
+	cout << endl;
+
+	vector <int> N;
+	vector <string> words;
+	for (int n; cin >> n; ) {	// get numbers from input
+		N.push_back(n);
+	}
+	
+	for (string word; cin >> word; ) {
+		words.push_back(word);
+	}
+	cout << "Number of words: " << words.size();
+	return 0;
+}*/
