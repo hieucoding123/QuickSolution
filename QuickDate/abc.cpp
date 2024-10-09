@@ -819,3 +819,32 @@ int main()
 	return 0;
 }*/
 
+/*#include <iostream>
+#include <cmath>
+#include <vector>
+using namespace std;
+
+int tangdan(int n)
+{
+	vector <int> Chuso;
+	int num;
+	for (num = 0; ; num++) {
+		if (n / 10 != 0) {
+			Chuso.push_back(n - (n / 10) * 10);
+			n /= 10;
+		}
+		else {
+			Chuso.push_back(n);
+			break;
+		}
+	}
+	for (int x = 0; x < num; x++)
+		for (int y = 0; y < num; y++)
+			if (Chuso[y] < Chuso[y + 1])
+				swap(Chuso[y], Chuso[y + 1]);
+	for (int x = 1; x <= num; x++)
+		Chuso[0] += Chuso[x] * pow(10, x);
+
+	return Chuso[0];
+}*/
+
