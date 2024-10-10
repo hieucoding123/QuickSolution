@@ -848,3 +848,26 @@ int tangdan(int n)
 	return Chuso[0];
 }*/
 
+/*#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	string phrases[4];
+	int n[4] = { 0, 1, 2, 3 };
+
+	for (int i = 0; i < 4; i++) {
+		getline(cin, phrases[i]);
+	}
+	for (int i = 0; i < 3; i++)
+		for (int j = 0; j < 3; j++)
+			if (phrases[j] > phrases[j + 1]) {
+				swap(phrases[j], phrases[j + 1]);
+				swap(n[j], n[j + 1]);
+			}
+	for (int i = 0; i < 4; i++)
+		cout << char('A' + n[i]) << ' ';
+
+	return 0;
+}*/
+
