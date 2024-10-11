@@ -871,3 +871,106 @@ int main() {
 	return 0;
 }*/
 
+/*#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	int m, n;
+	int i;
+	int j = 0;
+	cin >> m >> n;
+	vector < vector<int> > M(m, vector<int>(n));
+	vector < vector<int> > N((m - 1), vector<int>(n));
+	for (int x = 0; x < m; x++)
+		for (int y = 0; y < n; y++)
+			cin >> M[x][y];
+	cin >> i;
+	i -= 1;
+	for (int x = 0; x < m; x++) {
+		if (x != i) {
+			for (int y = 0; y < n; y++)
+				N[j][y] = M[x][y];
+			j++;
+		}
+	}
+	for (int x = 0; x < m - 1; x++) {
+		for (int y = 0; y < n; y++)
+			cout << N[x][y] << ' ';
+		cout << endl;
+	}
+
+	return 0;
+}*/
+
+/*#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+vector <string> makebox(int n)
+{
+	vector <string> Box;
+
+	Box.push_back(string(n, '#'));	// tao 1 string voi n ki tu #
+	for (int i = 1; i < n-1; i++) {
+		Box.push_back(string("#" + string(n - 2, ' ') + "#"));
+	}
+	if (n > 1) {
+		Box.push_back(string(n, '#'));
+	}
+	return Box;
+}
+
+int main()
+{
+	vector <string> Box;
+	Box = makebox(9);
+	for (const string& row : Box) {	// const: khong sua doi trong vong for
+		cout << row << endl;		// &: tham chieu den dia chi, nang cao hieu suat
+	}
+
+	return 0;
+}*/
+
+/*#include <iostream>
+#include <vector>
+using namespace std;
+
+string ticTacToe(vector<vector<char>> inputs)
+{
+	for (int i = 0; i < 2; i++) {
+		if (inputs[i][0]==inputs[i][1] && inputs[i][1]==inputs[i][2]) {
+			if (inputs[i][0] == 'X')
+				return "Player 1 wins";
+			else
+				return "Player 2 wins";
+		}else if(inputs[0][i]==inputs[1][i] && inputs[1][i]==inputs[2][i]) {
+			if (inputs[i][0] == 'X')
+				return "Player 1 wins";
+			else
+				return "Player 2 wins";
+		}
+	}
+	if (inputs[0][0]==inputs[1][1] && inputs[1][1]==inputs[2][2]) {
+		if (inputs[0][0] == 'X')
+			return "Player 1 wins";
+		else
+			return "Player 2 wins";
+	}else {
+		return "It's a Tie";
+	}
+}
+
+int main()
+{
+	vector < vector<char>> XO(3, vector<char>(3));
+	for (int i = 0; i < 3; i++)
+		for (int j = 0; j < 3; j++)
+			cin >> XO[i][j];
+	cout << ticTacToe(XO);
+
+	return 0;
+}*/
+
