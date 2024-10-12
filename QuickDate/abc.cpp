@@ -1025,38 +1025,44 @@ int grapful(int n)
 		}
 	}
 }*/
-
 #include <iostream>
-#include <vector>
 using namespace std;
 
-int lowestElement(vector<vector<int>> city, int x, int y)
+string convertTime(string s)
 {
-	vector <int> distance;
-	for (int i = x-1; i <= x+1; i++) {
-		for (int j = y-1; j <= y+1; j++) {
-			if (i<city.size() && j<city.size() && (i!= x||j!=y))
-				distance.push_back(city[i][j]);
+	string time = "00:00:00";
+	if (s[8] == 'A') {
+		if (s[0]!='1' || s[1]!='2')
+			for (int i = 0; i < 8; i++)
+				time[i] = s[i];
+		else {
+			for (int i = 3; i < 8; i++)
+				time[i] = s[i];
 		}
+		return time;
+	}else {
+		if (s[0]=='0' && s[1]<'8') {
+			time[0] = '1';
+			time[1] = s[1]+2;
+		}else if (s[0]=='0'&&s[1]>='8') {
+			time[0] = '2';
+			time[1] = s[1]-8;
+		}else{
+			if (s[1] != '2') {
+				time[0] = '2';
+				time[1] = s[1]+2;
+			}
+		}
+		for (int i = 3; i < 8; i++)
+			time[i] = s[i];
 	}
-	for (int i = 0; i < distance.size()-1; i++)
-		for (int j = 0; j < distance.size()-1; j++)
-			if (distance[j] > distance[j+1])
-				swap(distance[j], distance[j+1]);
-	return distance[0];
+	return time;
 }
 
 int main()
 {
-	vector < vector<int>> A(4, vector<int>(4));
-	int x, y;
-	x = 2;
-	y = 3;
-	A = { {-2, -5, -500, 49501},
-		{1004, 10502, -5061, 19303},
-		{40012, 487190, 39430, 13899},
-		{3, 1, 4, 1} };
-	cout <<  lowestElement(A, x, y);
+	string time = "12:40:22AM";
+	cout << convertTime(time);
 
 	return 0;
 }
