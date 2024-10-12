@@ -993,36 +993,35 @@ int main()
 	return 0;
 }*/
 
-#include <iostream>
-#include <vector>
+/*/#include <iostream>
 using namespace std;
 
-bool isMiniSudoku(vector<vector<int>> A)
+int grapful(int n)
 {
-	int tong = 0;
-	vector <int> n;
-	n.push_back(0);
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 3; j++) {
-			if (A[i][j] < 1 || A[i][j] > 9)
-				return false;
-			else
-				for (int k = 0; k < n.size(); k++)
-					if (A[i][j] == n[k]) 
-						return false;
-					else
-						n.push_back(A[i][j]);
+	int n_cp = n;
+	int high;
+	int lower, higher;
+	int daucuoi;
+	higher = lower = n;
+	if (n / 100 == 0) {
+		return 100;
+	}else{
+		daucuoi = n%10;
+		while (n/10 != 0)
+			n /= 10;
+		high = n;
+		daucuoi += 10*n;
+		if (n_cp % daucuoi == 0) {
+			return n_cp;
+		}else {
+			while (true) {
+				lower--;
+				higher++;
+				if (lower %(high*10+lower%10) == 0)
+					return lower;
+				if (higher % (high * 10 + higher % 10) == 0)
+					return higher;
+			}
 		}
 	}
-	return true;
-}
-
-int main()
-{
-	cout << isMiniSudoku({
-		{1, 1, 2},
-		{9, 7, 8},
-		{4, 5, 6}
-		});
-	return 0;
-}
+}*/
