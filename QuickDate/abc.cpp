@@ -984,10 +984,10 @@ int main()
 	int x = 0;
 	
 	cin >> s >> k;
-	for (int i = k-1; i >= 0; i--) {
-		for (int j = i; j < s.size()-1-x; j++)
+	for (int i = k-1; i >= 0; i--) {	so phan tu phai doi cho
+		for (int j = i; j < s.size()-1-x; j++)	// so lan phai doi cho 1 phan tu
 			swap(s[j], s[j+1]);
-		x++;
+		x++;	// vi tri doi cuoi cung se giam
 	}
 	cout << s;
 	return 0;
@@ -1025,44 +1025,32 @@ int grapful(int n)
 		}
 	}
 }*/
+
 #include <iostream>
 using namespace std;
 
-string convertTime(string s)
+long long get_max_sum(int a[], int n)
 {
-	string time = "00:00:00";
-	if (s[8] == 'A') {
-		if (s[0]!='1' || s[1]!='2')
-			for (int i = 0; i < 8; i++)
-				time[i] = s[i];
-		else {
-			for (int i = 3; i < 8; i++)
-				time[i] = s[i];
-		}
-		return time;
-	}else {
-		if (s[0]=='0' && s[1]<'8') {
-			time[0] = '1';
-			time[1] = s[1]+2;
-		}else if (s[0]=='0'&&s[1]>='8') {
-			time[0] = '2';
-			time[1] = s[1]-8;
-		}else{
-			if (s[1] != '2') {
-				time[0] = '2';
-				time[1] = s[1]+2;
+	int maxSum = -10000;
+	
+	for (int i = 0; i < n; i++) {
+		//int s = 0;
+		for (int x = i; x >= 0; x--) {
+			int s = 0;
+			for (int j = 0; j < n-i; j++) {
+				s += a[j+x];
 			}
+			maxSum = max(maxSum, s);
 		}
-		for (int i = 3; i < 8; i++)
-			time[i] = s[i];
 	}
-	return time;
+	return maxSum;
 }
 
 int main()
 {
-	string time = "12:40:22AM";
-	cout << convertTime(time);
+	int n = 3;
+	int a[3] = {9, 0, -3};
+	cout << get_max_sum(a, n);
 
 	return 0;
 }
