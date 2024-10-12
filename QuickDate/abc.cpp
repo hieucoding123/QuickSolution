@@ -974,3 +974,55 @@ int main()
 	return 0;
 }*/
 
+/*#include <iostream>
+using namespace std;
+
+int main()
+{
+	string s;
+	int k;
+	int x = 0;
+	
+	cin >> s >> k;
+	for (int i = k-1; i >= 0; i--) {
+		for (int j = i; j < s.size()-1-x; j++)
+			swap(s[j], s[j+1]);
+		x++;
+	}
+	cout << s;
+	return 0;
+}*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool isMiniSudoku(vector<vector<int>> A)
+{
+	int tong = 0;
+	vector <int> n;
+	n.push_back(0);
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (A[i][j] < 1 || A[i][j] > 9)
+				return false;
+			else
+				for (int k = 0; k < n.size(); k++)
+					if (A[i][j] == n[k]) 
+						return false;
+					else
+						n.push_back(A[i][j]);
+		}
+	}
+	return true;
+}
+
+int main()
+{
+	cout << isMiniSudoku({
+		{1, 1, 2},
+		{9, 7, 8},
+		{4, 5, 6}
+		});
+	return 0;
+}
