@@ -1025,3 +1025,32 @@ int grapful(int n)
 		}
 	}
 }*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> trackRobot(vector<int> steps)
+{
+	vector <int> robotPos(2, 0);
+	for (int i = 0; i < steps.size(); i++) {
+		if (i%4 == 1)
+			robotPos[0] += steps[i];
+		else if (i%4 == 3)
+			robotPos[0] -= steps[i];
+		else if (i%4 == 0)
+			robotPos[1] += steps[i];
+		else
+			robotPos[1] -= steps[i];
+	}
+	return robotPos;
+}
+
+int main()
+{
+	vector <int> a = trackRobot({ 0, 1, 0, 2, 0, 3, 0, 4, 0, 5 });
+	for (int& pos : a)
+		cout << pos << ' ';
+
+	return 0;
+}
