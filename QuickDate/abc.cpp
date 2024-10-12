@@ -1030,27 +1030,33 @@ int grapful(int n)
 #include <vector>
 using namespace std;
 
-vector<int> trackRobot(vector<int> steps)
+int lowestElement(vector<vector<int>> city, int x, int y)
 {
-	vector <int> robotPos(2, 0);
-	for (int i = 0; i < steps.size(); i++) {
-		if (i%4 == 1)
-			robotPos[0] += steps[i];
-		else if (i%4 == 3)
-			robotPos[0] -= steps[i];
-		else if (i%4 == 0)
-			robotPos[1] += steps[i];
-		else
-			robotPos[1] -= steps[i];
+	vector <int> distance;
+	for (int i = x-1; i <= x+1; i++) {
+		for (int j = y-1; j <= y+1; j++) {
+			if (i<city.size() && j<city.size() && (i!= x||j!=y))
+				distance.push_back(city[i][j]);
+		}
 	}
-	return robotPos;
+	for (int i = 0; i < distance.size()-1; i++)
+		for (int j = 0; j < distance.size()-1; j++)
+			if (distance[j] > distance[j+1])
+				swap(distance[j], distance[j+1]);
+	return distance[0];
 }
 
 int main()
 {
-	vector <int> a = trackRobot({ 0, 1, 0, 2, 0, 3, 0, 4, 0, 5 });
-	for (int& pos : a)
-		cout << pos << ' ';
+	vector < vector<int>> A(4, vector<int>(4));
+	int x, y;
+	x = 2;
+	y = 3;
+	A = { {-2, -5, -500, 49501},
+		{1004, 10502, -5061, 19303},
+		{40012, 487190, 39430, 13899},
+		{3, 1, 4, 1} };
+	cout <<  lowestElement(A, x, y);
 
 	return 0;
 }
