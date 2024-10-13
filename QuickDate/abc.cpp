@@ -1026,15 +1026,11 @@ int grapful(int n)
 	}
 }*/
 
-#include <iostream>
-using namespace std;
-
-long long get_max_sum(int a[], int n)
+/*long long get_max_sum(int a[], int n)
 {
 	int maxSum = -10000;
 	
 	for (int i = 0; i < n; i++) {
-		//int s = 0;
 		for (int x = i; x >= 0; x--) {
 			int s = 0;
 			for (int j = 0; j < n-i; j++) {
@@ -1044,13 +1040,69 @@ long long get_max_sum(int a[], int n)
 		}
 	}
 	return maxSum;
+}*/
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int findChildNum(int n)
+{
+	int childNum = 1;
+	int i = 1;
+	while (n!= 0) {
+		int x = n - (n/10)*10;
+		n /= 10;
+		int y = n - (n/10)*10;
+		n /= 10;
+		if ((x+y) > 9)	// khong thoa man
+			return 0;
+		childNum += i*(x+y-1);
+		i *= 10;	// 10^n
+		if (n != 0)
+			childNum += i;	// cong len them 1 chu so
+	}
+	return childNum;
+}
+
+int reverseNum(int n)
+{
+	int revNum = 0;
+	while (n != 0)
+	{
+		revNum += n - (n/10)*10;
+		n /= 10;
+		if (n != 0)
+			revNum *= 10;
+	}
+	return revNum;
+}
+
+bool palindromeDescendant(int n)
+{
+	int childNum, revNum;
+	revNum = reverseNum(n);
+	if (n == revNum) {
+		return true;
+	}else {
+		for (int i = 0; i < 2; i++) {
+			n = findChildNum(n);
+			if (n==0 || n/10==0) {	// khong co nghich dao hoac n co 1 chso
+				return false;
+			}else {
+				revNum = reverseNum(n);
+				if (n==revNum)
+					return true;
+			}
+		}
+		return false;
+	}
 }
 
 int main()
 {
-	int n = 3;
-	int a[3] = {9, 0, -3};
-	cout << get_max_sum(a, n);
+	int s = 9735;
+	cout << palindromeDescendant(s);
 
 	return 0;
 }
