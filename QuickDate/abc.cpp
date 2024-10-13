@@ -1099,18 +1099,33 @@ bool palindromeDescendant(int n)
 #include <vector>
 using namespace std;
 
-bool circularShift(vector<int> a, vector<int> b, int x)
+bool hasIdentical(vector<vector<int>> N)
 {
-	for (int i = 0; i < a.size(); i++) {
-		if (a[i] != b[(i+x)%(a.size())])
-			return false;
-	}
-	return true;
+	int sz = N.size();
+	if (sz == N[0].size())
+		for (int i = 0; i < sz; i++) {
+			for (int j = 0; j < sz; j++) {
+				for (int k = 0; k < sz; k++) {
+					if (N[i][k] == N[k][j])
+						if (k == sz-1)
+							return true;
+					else
+						break;
+				}
+			}
+		}
+	return false;
 }
 
 int main()
 {
-	
+	cout << hasIdentical({
+		{4, 2, 4, 6, 1},
+		{2, 4, 9, 4, 5},
+		{5, 1, 7, 1, 9},
+		{6, 4, 1, 0, 33},
+		{5, 5, 5, 33, 5}
+		});
 
 	return 0;
 }
