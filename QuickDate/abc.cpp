@@ -1042,11 +1042,7 @@ int grapful(int n)
 	return maxSum;
 }*/
 
-#include <iostream>
-#include <cmath>
-using namespace std;
-
-int findChildNum(int n)
+/*int findChildNum(int n)
 {
 	int childNum = 1;
 	int i = 1;
@@ -1097,12 +1093,24 @@ bool palindromeDescendant(int n)
 		}
 		return false;
 	}
+}*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool circularShift(vector<int> a, vector<int> b, int x)
+{
+	for (int i = 0; i < a.size(); i++) {
+		if (a[i] != b[(i+x)%(a.size())])
+			return false;
+	}
+	return true;
 }
 
 int main()
 {
-	int s = 9735;
-	cout << palindromeDescendant(s);
+	
 
 	return 0;
 }
