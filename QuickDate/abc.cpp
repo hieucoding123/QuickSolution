@@ -1127,8 +1127,7 @@ vector<vector<int>> multiplyMatrix(vector<vector<int>> A, vector<vector<int>> B)
 	vector<vector<int>> AB;
 	int row = A.size();
 	int col = B[0].size();
-	AB[0].resize(col);
-	AB.resize(row);
+	AB.resize(row, vector<int>(col));
 	
 	if (A[0].size() == B.size()) {
 		for (int i = 0; i < row; i++) {
@@ -1148,7 +1147,7 @@ int main()
 	vector <vector<int>> ab = multiplyMatrix({ {1, 2}, {2, 4} }, { {3, 9}, {4, 5} });
 	for (int i = 0; i < ab.size(); i++) {
 		for (int j = 0; j < ab[0].size(); j++) {
-			cout << ab[i][j];
+			cout << ab[i][j] << ' ';
 		}
 		cout << endl;
 	}
