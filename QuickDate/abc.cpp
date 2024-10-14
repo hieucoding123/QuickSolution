@@ -1186,10 +1186,7 @@ bool hasIdentical(vector<vector<int>> N)
 	return ketqua;
 }*/
 
-#include <iostream>
-using namespace std;
-
-string namConGiap(int n)
+/*string namConGiap(int n)
 {
 	string elements[5] = {"Wood", "Fire", "Earth", "Metal", "Water"};
     string animals[12] = {"Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Sheep", "Monkey", "Rooster", "Dog", "Pig"};
@@ -1203,13 +1200,51 @@ string namConGiap(int n)
         x += elements[4-((moc-n)%10)/2] +" "+ animals[12-(moc-n)%12];
         return x;
     }
-}
+}*/
+
+/*#include <iostream>
+#include <string>
+using namespace std;
 
 int main()
 {
-	int n;
-	cin >> n;
-	cout << namConGiap(n);
+	string s;
+	int x = 0;
+	int i;
+
+	getline(cin, s);
+	for (i = 0; i < s.length(); i++) {
+		if (s[i] != ' ') {
+			x++;
+		}else {
+			if (x % 2 != 0) {
+				for (int j = 1; j <= x; j++) {
+					cout << s[i - j];
+				}
+				cout << ' ';
+			}else {
+				for (int j = x; j > 0; j--) {
+					cout << s[i-j];
+				}
+				cout << ' ';
+			}
+			x = 0;
+		}
+
+	}
 	
+	if (x % 2 != 0) {
+		for (int j = 1; j <= x; j++) {
+			cout << s[i - j];
+				}
+		cout << ' ';
+	}else {
+		for (int j = x; j > 0; j--) {
+			cout << s[i-j];
+		}
+		cout << ' ';
+	}
+
 	return 0;
-}
+}*/
+
