@@ -1139,32 +1139,62 @@ bool hasIdentical(vector<vector<int>> N)
 }*/
 
 #include <iostream>
+#include <string>
 #include <vector>
 using namespace std;
 
-vector<int> sortRemainder(int n, int k, vector<int> A)
+string sortFrequency(string s)
 {
-	vector <int> Du;
+	vector <char> C;
+	vector <int> F;
+	string ketqua = "";
 
-	for (int i = 0; i < n; i++) {
-        Du.push_back(A[i]%k);
-        for (int j = 0; j < Du.size()-1; j++) {
-            for (int k = 0; k < Du.size()-1; k++) {
-                if (Du[k] > Du[k+1]) {
-                    swap(Du[k], Du[k+1]);
-                    swap(A[k], A[k+1]);
-                }
-            }
-        }
-    }
-	return A;
+	C.push_back(s[0]);
+	F.push_back(0);
+	for (int i = 0; i < s.length(); i++) {	// dem tan so
+		for (int j = 0; j < C.size(); j++) {
+			if (s[i] == C[j]) {
+				F[j]++;
+				break;
+			}
+			else {
+				if (j == C.size() - 1) {	// s[i] chua co trong C
+					C.push_back(s[i]);
+					F.push_back(0);
+				}
+			}
+		}
+	}
+	for (int i = 0; i < C.size() - 1; i++) {	// sap xep theo tan so
+		for (int j = 0; j < C.size() - 1; j++) {
+			if (F[j] < F[j + 1]) {
+				swap(C[j], C[j + 1]);
+				swap(F[j], F[j + 1]);
+			}
+		}
+	}
+	for (int i = 0; i < C.size() - 1; i++) {	// khi f ==, sap xep theo chu cai
+		for (int j = 0; j < C.size() - 1; j++) {
+			if (F[j] == F[j + 1]) {
+				if (C[j] > 96 && C[j + 1] < 91) {
+					swap(C[j], C[j + 1]);
+				}
+				if (C[j] > C[j + 1]) {
+					swap(C[j], C[j + 1]);
+				}
+			}
+		}
+	}
+	for (int i = 0; i < C.size(); i++)
+		for (int j = 0; j < F[i]; j++)
+			ketqua += C[i];
+	return ketqua;
 }
+
 
 int main()
 {
-	vector<int> X = sortRemainder(3, 2, { 1, 2, 3 });
-	for (int x : X)
-		cout << x << ' ';
+	cout << sortFrequency("ccSctiXmStfmctmgfmfcfgtggEiicfiwtitgcgwScfXwScmwgtmfwigmifgfmSfwitgX");
 	
 	return 0;
 }
