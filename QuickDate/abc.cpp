@@ -1138,12 +1138,7 @@ bool hasIdentical(vector<vector<int>> N)
 	return AB;
 }*/
 
-#include <iostream>
-#include <string>
-#include <vector>
-using namespace std;
-
-string sortFrequency(string s)
+/*string sortFrequency(string s)
 {
 	vector <char> C;
 	vector <int> F;
@@ -1189,12 +1184,32 @@ string sortFrequency(string s)
 		for (int j = 0; j < F[i]; j++)
 			ketqua += C[i];
 	return ketqua;
-}
+}*/
 
+#include <iostream>
+using namespace std;
+
+string namConGiap(int n)
+{
+	string elements[5] = {"Wood", "Fire", "Earth", "Metal", "Water"};
+    string animals[12] = {"Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Sheep", "Monkey", "Rooster", "Dog", "Pig"};
+    string x = "";
+    int moc = 1984;
+    
+    if (n >= moc) {
+        x += elements[((n-moc)%10)/2] +" "+ animals[(n-moc)%12];
+        return x;
+    }else {
+        x += elements[4-((moc-n)%10)/2] +" "+ animals[12-(moc-n)%12];
+        return x;
+    }
+}
 
 int main()
 {
-	cout << sortFrequency("ccSctiXmStfmctmgfmfcfgtggEiicfiwtitgcgwScfXwScmwgtmfwigmifgfmSfwitgX");
+	int n;
+	cin >> n;
+	cout << namConGiap(n);
 	
 	return 0;
 }
