@@ -1095,7 +1095,7 @@ bool palindromeDescendant(int n)
 	}
 }*/
 
-#include <iostream>
+/*#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -1106,26 +1106,51 @@ bool hasIdentical(vector<vector<int>> N)
 		for (int i = 0; i < sz; i++) {
 			for (int j = 0; j < sz; j++) {
 				for (int k = 0; k < sz; k++) {
-					if (N[i][k] == N[k][j])
+					if (N[i][k] == N[k][j]) {
 						if (k == sz-1)
 							return true;
-					else
+					}else {
 						break;
+					}
 				}
 			}
 		}
 	return false;
+}*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<vector<int>> multiplyMatrix(vector<vector<int>> A, vector<vector<int>> B)
+{
+	vector<vector<int>> AB;
+	int row = A.size();
+	int col = B[0].size();
+	AB[0].resize(col);
+	AB.resize(row);
+	
+	if (A[0].size() == B.size()) {
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col; j++) {
+				AB[i][j] = 0;
+				for (int x = 0; x < B.size(); x++) {
+					AB[i][j] += A[i][x]*B[x][j];
+				}
+			}
+		}
+	}
+	return AB;
 }
 
 int main()
 {
-	cout << hasIdentical({
-		{4, 2, 4, 6, 1},
-		{2, 4, 9, 4, 5},
-		{5, 1, 7, 1, 9},
-		{6, 4, 1, 0, 33},
-		{5, 5, 5, 33, 5}
-		});
-
+	vector <vector<int>> ab = multiplyMatrix({ {1, 2}, {2, 4} }, { {3, 9}, {4, 5} });
+	for (int i = 0; i < ab.size(); i++) {
+		for (int j = 0; j < ab[0].size(); j++) {
+			cout << ab[i][j];
+		}
+		cout << endl;
+	}
 	return 0;
 }
