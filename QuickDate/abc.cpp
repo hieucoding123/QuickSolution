@@ -1118,11 +1118,7 @@ bool hasIdentical(vector<vector<int>> N)
 	return false;
 }*/
 
-#include <iostream>
-#include <vector>
-using namespace std;
-
-vector<vector<int>> multiplyMatrix(vector<vector<int>> A, vector<vector<int>> B)
+/*vector<vector<int>> multiplyMatrix(vector<vector<int>> A, vector<vector<int>> B)
 {
 	vector<vector<int>> AB;
 	int row = A.size();
@@ -1140,16 +1136,35 @@ vector<vector<int>> multiplyMatrix(vector<vector<int>> A, vector<vector<int>> B)
 		}
 	}
 	return AB;
+}*/
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> sortRemainder(int n, int k, vector<int> A)
+{
+	vector <int> Du;
+
+	for (int i = 0; i < n; i++) {
+        Du.push_back(A[i]%k);
+        for (int j = 0; j < Du.size()-1; j++) {
+            for (int k = 0; k < Du.size()-1; k++) {
+                if (Du[k] > Du[k+1]) {
+                    swap(Du[k], Du[k+1]);
+                    swap(A[k], A[k+1]);
+                }
+            }
+        }
+    }
+	return A;
 }
 
 int main()
 {
-	vector <vector<int>> ab = multiplyMatrix({ {1, 2}, {2, 4} }, { {3, 9}, {4, 5} });
-	for (int i = 0; i < ab.size(); i++) {
-		for (int j = 0; j < ab[0].size(); j++) {
-			cout << ab[i][j] << ' ';
-		}
-		cout << endl;
-	}
+	vector<int> X = sortRemainder(3, 2, { 1, 2, 3 });
+	for (int x : X)
+		cout << x << ' ';
+	
 	return 0;
 }
