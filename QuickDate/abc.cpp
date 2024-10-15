@@ -1287,9 +1287,10 @@ bool asf(int n)
 }*/
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int main()
+int dynamicMemoryAllocation()
 {
 	/*int num = 91;
 	double pi = 3.14;
@@ -1361,4 +1362,28 @@ int main()
 	delete[] pArray;	// Thu hoi vung nho
 	*/
     return 0;
+}
+
+
+int threeSumClosest(vector<int>& nums, int target) {
+	for (int i = 0; i < nums.size(); i++) {
+		nums[i] = target - nums[i];
+	}
+	for (int i = 0; i < nums.size()-1; i++) {
+		for (int j = 0; j < nums.size()-1; j++) {
+			if (nums[j] > nums[j+1]) {
+				swap(nums[j], nums[j+1]);
+			}
+		}
+	}
+	return 3*target - (nums[1]+nums[0]+nums[2]);
+}
+
+int main()
+{
+	vector <int> M = {1, 3, -2, -2};
+	int n = -1;
+	cout << threeSumClosest(M, n);
+
+	return 0;
 }
