@@ -1248,3 +1248,117 @@ int main()
 	return 0;
 }*/
 
+/*#include <iostream>
+#include <vector>
+using namespace std;
+
+bool chunguoc(int a, int b)
+{
+    for (int i = 2; i <= min(a, b); i++)
+        if (a%i == 0 && b%i == 0)
+            return true;
+    return false;
+}
+
+bool asf(int n)
+{
+    vector <int> A = {1, 2};
+    
+    while (true) {
+        for (int i = 3; ; i++) {
+            if (chunguoc(i, A[A.size()-1])) {
+                for (int j = 0; j < A.size(); j++) {
+                    if (i != A[j]) {
+                        if (i == A.size()-1) {
+                            if ((chunguoc(i, n))) {
+                                return (i+2);
+                            }else {
+                                A.push_back(i);
+                                break;
+                            }
+                        }
+                    }else {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	/*int num = 91;
+	double pi = 3.14;
+	int *numpt = &num;
+	double *pipt;
+	pipt = &pi;
+
+	cout << num << endl;
+	cout << "O nho: " <<  numpt << endl;
+	cout << "Gia tri o nho: " << *numpt << endl;
+	*numpt = 99;
+	cout << num << endl;
+	cout << "O nho cua pi: " << pipt;
+
+	int &refnum = num;
+	cout << num << endl;
+	cout << refnum << endl;
+	refnum++;
+	cout << refnum << endl;
+	int* refnumpt = &refnum;
+	cout << "Dia chi o nho: " << refnumpt;
+
+	int num1 = 23, num2 = 38;
+
+	int *num1pt;
+	num1pt = &num1;
+	cout << num1pt << endl;		// Dia chi cua num1
+	cout << &num1pt << endl;	// Dia chi
+	cout << *num1pt << endl;	// Gia tri cua num1
+	*num1pt = 43;	// Tham chieu vao num1 can dau *
+	cout << *num1pt << endl;	// Thay doi con tro
+	cout << num1 << endl;	// Gia tri cua num1 cung thay doi
+	
+	cout << "\n********\n" << endl;
+
+	int &refnum2 = num2;
+	cout << refnum2 << endl;
+	refnum2 = 32;	// <=> num2 = 32, khong can dau *
+	cout << num2 << endl;	// Thay doi theo tham chieu
+	cout << &refnum2 << endl;
+	cout << &num2 << endl;
+	refnum2 = num1; // 43
+	num1++;
+	cout << refnum2 << endl;	// khong thay doi du num1 tang
+	cout << num1 << endl;*/
+	
+	// Cap phat va thu hoi vung nho dong
+	/*int* numpt;
+	int *kpt = new int(23);	// khoi tao doi tuong la bien kieu co ban
+	numpt = new int;  // Yeu cau cap phat vung nho dong
+	cout << "Dia chi truoc " << numpt << endl;
+	
+	*numpt = 20;
+	cout << "Dai chi sau " << numpt << endl;
+	cout << *numpt << endl;
+	delete numpt;  // Thu hoi vung nho
+	//cout << numpt;	// Dia chi ngau nhien
+	cout << *kpt << endl;*/
+
+	// Cap phat mang dong
+	// pArray = &pArray[0], mang la mot con tro, tro toi phan tu dau tien
+	/*int* pArray = new int[5];	// Cap phat vung nho
+	for (int i = 0; i < 5; i++) {
+		*(pArray + i) = i;	// *(pArray + i) = pArray[i]
+	}
+	for (int i = 0; i < 5; i++) {
+		cout << *(pArray + i) << endl;
+	}
+	delete[] pArray;	// Thu hoi vung nho
+	*/
+    return 0;
+}
