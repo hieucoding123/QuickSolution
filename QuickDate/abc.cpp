@@ -1286,10 +1286,6 @@ bool asf(int n)
     }
 }*/
 
-#include <iostream>
-#include <vector>
-using namespace std;
-
 int dynamicMemoryAllocation()
 {
 	/*int num = 91;
@@ -1364,7 +1360,9 @@ int dynamicMemoryAllocation()
     return 0;
 }
 
-
+/*#include <iostream>
+#include <vector>
+using namespace std;
 int threeSumClosest(vector<int>& nums, int target) {
 	for (int i = 0; i < nums.size(); i++) {
 		nums[i] = target - nums[i];
@@ -1385,5 +1383,21 @@ int main()
 	int n = -1;
 	cout << threeSumClosest(M, n);
 
+	return 0;
+}*/
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	vector <int> M = { 1,2, 3, 4 };
+	vector <int> K(4);
+
+	move(M.begin(), M.end(), K.begin());
+	for (int x:K)	cout << x;
+	
 	return 0;
 }
